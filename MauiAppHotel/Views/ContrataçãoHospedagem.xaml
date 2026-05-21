@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.ContrataçãoHospedagem"
+             Title="ContrataçãoHospedagem"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Gray400}">
+   
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
+        
+        <Label  Text="Cálculo da Diária" 
+                FontFamily="Kalam"
+                FontSize="40"
+                HorizontalOptions="Center"
+                TextColor="{StaticResource White}"/>
+
+        <Border Padding="10">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, 2*">
+                    
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Adultos:" TextColor="White"  />
+
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="{StaticResource White}"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_adultos}"/> 
+                    
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_adultos"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1" />
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Crianças:" TextColor="White" />
+
+                    <Label Grid.Row="1" Grid.Column="1"
+                        TextColor="{StaticResource White}"
+                        Text="{Binding Value}"
+                        BindingContext="{x:Reference stp_criancas}"/>
+
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                          x:Name="stp_criancas"
+                          Minimum="0"
+                          Maximum="10"
+                          Increment="1" />
+
+                </Grid>
+
+                <Label Text="Escolha sua Suíte" TextColor="White" />
+
+                <Picker x:Name="pck_quarto"
+                        Title="Selecione sua Acomodação"
+                        TitleColor="White"
+                        TextColor="White"
+                        BackgroundColor="#3A3A3A"
+                        ItemDisplayBinding="{Binding Descricao}"/>
+
+                <Border Padding="15"
+                        Stroke="#505050"
+                        StrokeThickness="2"
+                        BackgroundColor="Gray"
+                       Margin="10">
+                    <VerticalStackLayout>
+                        <Label Text="Período da Estadia" />
+                        
+                        <HorizontalStackLayout>
+                            <Label Text="Check-in:" />
+                            <DatePicker x:Name="dtpck_checkin" 
+                                        TextColor="White"
+                                        BackgroundColor="#3A3A3A"
+                                        DateSelected="dtpck_checkin_DateSelected"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Check-out:" />
+                            <DatePicker x:Name="dtpck_checkout" 
+                                         TextColor="White"
+                                         BackgroundColor="#3A3A3A"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+                <Button Text="Avançar" Clicked="Button_Clicked" 
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        CornerRadius="15"
+                        HeightRequest="50"/>
+
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
