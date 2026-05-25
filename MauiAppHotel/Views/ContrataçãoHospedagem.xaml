@@ -7,7 +7,8 @@
              BackgroundColor="{StaticResource Gray400}">
    
     <VerticalStackLayout VerticalOptions="CenterAndExpand"
-                         Padding="10">
+                         Padding="10"
+                         Spacing="10">
         
         <Label  Text="Cálculo da Diária" 
                 FontFamily="Kalam"
@@ -51,7 +52,14 @@
 
                 </Grid>
 
-                <Label Text="Escolha sua Suíte" TextColor="White" />
+                <Border Padding="10" Margin="10" />
+                <VerticalStackLayout>
+                    
+                
+                <Label Text="Escolha sua Suíte"
+                       TextColor="White" 
+                       TextTransform="Uppercase"
+                       FontSize="Subtitle"/>
 
                 <Picker x:Name="pck_quarto"
                         Title="Selecione sua Acomodação"
@@ -59,16 +67,21 @@
                         TextColor="White"
                         BackgroundColor="#3A3A3A"
                         ItemDisplayBinding="{Binding Descricao}"/>
-
+                    
+                </VerticalStackLayout>
+                
                 <Border Padding="15"
                         Stroke="#505050"
                         StrokeThickness="2"
                         BackgroundColor="Gray"
                        Margin="10">
-                    <VerticalStackLayout>
-                        <Label Text="Período da Estadia" />
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Período da Estadia" 
+                               TextTransform="Uppercase"
+                               FontSize="Subtitle"
+                               />
                         
-                        <HorizontalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
                             <Label Text="Check-in:" />
                             <DatePicker x:Name="dtpck_checkin" 
                                         TextColor="White"
@@ -77,7 +90,7 @@
                                         Format="dd/MM/yyyy" />
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
                             <Label Text="Check-out:" />
                             <DatePicker x:Name="dtpck_checkout" 
                                          TextColor="White"
@@ -86,7 +99,9 @@
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Border>
-                <Button Text="Avançar" Clicked="Button_Clicked" 
+                <Button Text="Avançar" 
+                        HorizontalOptions="Center"
+                        Clicked="Button_Clicked" 
                         BackgroundColor="Black"
                         TextColor="White"
                         CornerRadius="15"

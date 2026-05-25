@@ -1,0 +1,1 @@
+Requesting to open files HospedagemContratada.xaml and HospedagemContratada.xaml.cs to inspect bindings.
